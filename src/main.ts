@@ -10,7 +10,7 @@ async function bootstrap() {
   const port: number = config.get<number>('PORT');
 
   app.enableCors({
-    origin: '*',
+    origin: config.get('CLIENT_HOST'),
     methods: 'GET, HEAD, PUT, PATCH, POST, DELETE',
     preflightContinue: false,
     optionsSuccessStatus: 200,
