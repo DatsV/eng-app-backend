@@ -22,7 +22,7 @@ export class WordService {
     if (
       (!user.isVip || !user.isConfirm) &&
       typeof user.words == 'number' &&
-      user.words >= 20
+      user.words >= 40
     ) {
       throw new HttpException('Your limit reached', HttpStatus.BAD_REQUEST);
     }
