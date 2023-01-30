@@ -20,7 +20,7 @@ export class JwtStrategy extends PassportStrategy(Strategy, 'Bearer') {
   async validate(payload: { sub: number; email: string; key: string }) {
     const user = await this.userService.findOneByEmail(payload.email);
 
-    const confirmKey = user.password.slice(-7);
+    const confirmKey = user?.password.slice(-7);
 
     if (!user || payload.key !== confirmKey) {
       throw new UnauthorizedException(null, 'Can not find you');
